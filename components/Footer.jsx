@@ -1,3 +1,4 @@
+// components/Footer.jsx
 'use client'
 import { ArrowUpRight } from 'lucide-react';
 import { ParticleTextEffect } from "@/components/ui/interactive-text-particle";
@@ -13,12 +14,15 @@ export default function Footer() {
     <footer id="contact" className="w-full bg-[#0a0a0a] flex flex-col relative z-20 border-t border-white/10">
       <div className="max-w-350 mx-auto w-full px-6 md:px-12 py-16 md:py-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 lg:gap-8">
         <div className="lg:col-span-5 flex flex-col gap-8 md:gap-10">
+          
           <div className="flex items-center">
-             <img src="/senol.png" alt="SENO Studio" className="w-16 h-16 md:w-20 md:h-20 object-contain rounded-lg shadow-2xl shadow-emerald-500/10" />
+             {/* FIXED: Swapped to your new portrait image, used object-cover, and added a red-tinted shadow */}
+             <img src="/SKJ.png" alt="Satyam Kumar Jha" className="w-16 h-16 md:w-20 md:h-20 object-cover rounded-lg shadow-2xl shadow-red-500/20" />
           </div>
+          
           <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
             <span className="text-zinc-600 text-xs font-sans font-medium tracking-widest uppercase w-20 shrink-0">(EMAIL)</span>
-            <a href="mailto:hiee.seno@gmail.com" className="text-[#EF4444] text-2xl md:text-4xl font-sans font-medium hover:opacity-80 transition-opacity">hiee.seno@gmail.com</a>
+            <a href="mailto:krjhasatyam128@gmail.com" className="text-[#EF4444] text-xl md:text-4xl font-sans font-medium hover:opacity-80 transition-opacity">krjhasatyam128@gmail.com</a>
           </div>
           <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
             <span className="text-zinc-600 text-xs font-sans font-medium tracking-widest uppercase w-20 shrink-0">(PHONE)</span>

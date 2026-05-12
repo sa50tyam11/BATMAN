@@ -44,7 +44,7 @@ export default function Testimonial() {
                         transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
                         className="w-full relative h-[500px] lg:h-[700px] rounded-3xl overflow-hidden bg-gradient-to-tr from-zinc-900 to-zinc-800 p-8 flex items-center justify-center border border-white/5"
                     >
-                        <img src="/softcampus.jpg" alt="Project Mockup" className="w-full h-full object-contain drop-shadow-2xl scale-110" />
+                        
                     </motion.div>
                 </div>
             </div>

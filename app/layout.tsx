@@ -14,6 +14,14 @@ const instrument = Instrument_Serif({
   variable: '--font-instrument',
 })
 
+// --- ADDED THIS BLOCK FOR THE BROWSER TAB COLOR ---
+export const viewport = {
+  // Browsers ONLY accept solid colors here, no gradients.
+  // Change this HEX code to any solid color you want. 
+  // #0a0a0a matches your dark background perfectly.
+  themeColor: '#0a0a0a', 
+}
+
 export const metadata = {
   title: 'Satyam Kumar Jha | SENO Studio',
   description: 'Full Stack Developer & Founder of SENO',

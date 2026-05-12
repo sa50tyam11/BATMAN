@@ -7,21 +7,24 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ComicText } from '@/components/ui/comic-text';
 import { ArrowUpRight } from 'lucide-react';
 
+// FIXED: Removed ScrollStack imports entirely to restore the original native GSAP animation
+
 const projects = [
   {
     id: "01",
-    // Using JSX directly in the data to color 'Soft' and 'Campus' separately
-    name: <><span className="text-[#FF5722]">Soft</span><span className="text-[#0284c7]">Campus</span></>,
-    category: "Global Tech Agency",
-    description: "A complete website built from scratch for a global company that crafts custom software and web solutions. Designed to perfectly showcase their extensive portfolio and global presence.",
-    image: "/softcampus.jpg",
+    name: <><span className="text-[#EF4444]">Soft</span><span className="text-white">Campus</span></>,
+    category: "TECH & Custom SaaS",
+    description: "A comprehensive digital infrastructure designed for educational institutions. Features a scalable front-end website integrated with custom software, including dedicated secure portals for parents, students, and administrators.",
+    image: "/schooldemo.png",
+    link: "https://campusschool.netlify.app/#" // Linked to your new live project
   },
   {
     id: "02",
     name: "Muzaffarpur Lahathi",
     category: "Digital Transformation",
     description: "Built from the ground up for a client with a massive offline legacy but zero online footprint. This platform successfully launched their brand into the digital space.",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop", // Keeping your previous placeholder
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop", 
+    link: "#" 
   },
   {
     id: "03",
@@ -29,6 +32,7 @@ const projects = [
     category: "Freelance Agency",
     description: "The official digital headquarters for my own freelance agency. Engineered from scratch to deliver elite, uncompromising digital experiences. Live at www.senostudio.in.",
     image: "/seno.jpg",
+    link: "https://senostudio.in"
   }
 ];
 
@@ -98,9 +102,10 @@ export default function Work() {
                 </p>
 
                 <div className="mt-8">
-                  <button className="flex items-center gap-2 text-white font-medium uppercase tracking-widest hover:opacity-70 transition-opacity">
+                  {/* FIXED: Wired up the live link so it opens the website in a new tab */}
+                  <a href={projects[activeIndex].link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white font-medium uppercase tracking-widest hover:opacity-70 transition-opacity w-fit">
                     View Case Study <ArrowUpRight size={20} />
-                  </button>
+                  </a>
                 </div>
 
               </motion.div>
@@ -108,39 +113,43 @@ export default function Work() {
           </div>
         </div>
 
-        {/* RIGHT CONTENT (Scrollable Images) */}
-        <div className="col-span-1 lg:col-span-7 flex flex-col pt-24 lg:pt-0 pb-12">
+        {/* RIGHT CONTENT (Original Native Scrolling) */}
+        <div className="col-span-1 lg:col-span-7 pt-24 lg:pt-32 pb-12 flex flex-col gap-24 md:gap-40">
           {projects.map((proj, index) => (
             <div
               key={index}
               id={`project-${index}`}
-              className="min-h-screen w-full flex flex-col justify-center py-12"
+              className="w-full flex flex-col justify-center"
             >
-              <div className="group relative w-full aspect-[4/3] rounded-xl overflow-hidden cursor-pointer mb-6 border border-white/10">
+              {/* FIXED: Removed ScrollStack wrapper and wrapped the image in an <a> tag */}
+              <a href={proj.link} target="_blank" rel="noopener noreferrer" className="group relative w-full aspect-[4/3] rounded-xl overflow-hidden cursor-pointer shadow-[0_0_40px_rgba(0,0,0,0.5)] border border-white/10 block">
                 <img
                   src={proj.image}
                   alt={`Project ${proj.id}`}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
+                
+                {/* Dark overlay on hover for better text contrast */}
+                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="bg-black/80 backdrop-blur-md text-white px-6 py-3 rounded-full flex items-center gap-2 border border-white/10 font-medium tracking-wide">
                     VIEW PROJECT <ArrowUpRight size={18} />
                   </div>
                 </div>
-              </div>
+              </a>
 
               {/* Mobile Info */}
-              <div className="lg:hidden flex flex-col mt-4">
+              <div className="lg:hidden flex flex-col mt-6 bg-[#0d0d0d] p-6 rounded-xl border border-white/5">
                 <span className="text-zinc-500 font-medium mb-2 tracking-widest">({proj.id})</span>
-                <h3 className="text-4xl font-bold text-white mb-4">{proj.name}</h3>
+                <h3 className="text-3xl font-bold text-white mb-4">{proj.name}</h3>
                 <span className="px-3 py-1 border border-white/20 rounded-full text-xs font-medium text-white/80 uppercase tracking-widest w-fit mb-4">
                   {proj.category}
                 </span>
                 <p className="text-zinc-400 leading-relaxed mb-6">{proj.description}</p>
-                <button className="flex items-center gap-2 text-white text-sm font-medium uppercase tracking-widest hover:opacity-70 transition-opacity w-fit">
+                <a href={proj.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white text-sm font-medium uppercase tracking-widest hover:opacity-70 transition-opacity w-fit">
                   View Case Study <ArrowUpRight size={16} />
-                </button>
+                </a>
               </div>
             </div>
           ))}
