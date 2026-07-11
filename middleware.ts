@@ -1,7 +1,27 @@
-import { clerkMiddleware } from '@clerk/nextjs/server'
+import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
+
+// These routes require authentication
+const isProtectedRoute = createRouteMatcher([
+  '/admin/blog(.*)',
+  '/api/admin(.*)',
+])
+
+// The guestbook API route
+const isGuestbookApi = createRouteMatcher([
+  '/api/guestbook(.*)'
+])
 
 export default clerkMiddleware(async (auth, req) => {
-  await auth.protect()
+  // Protect all admin routes
+  if (isProtectedRoute(req)) {
+    await auth.protect()
+  }
+
+  // Only protect POST requests to the guestbook API (submitting a new message)
+  // GET requests (viewing messages) remain public
+  if (isGuestbookApi(req) && req.method === 'POST') {
+    await auth.protect()
+  }
 })
 
 export const config = {
