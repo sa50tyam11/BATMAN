@@ -28,7 +28,7 @@ export default function Faq() {
   };
 
   return (
-    <section className="w-full bg-[#0a0a0a] py-24 md:py-32 border-t border-white/10 relative">
+    <section className="w-full bg-[#0a0a0a] light:bg-[#fafafa] py-24 md:py-32 border-t border-white/10 light:border-black/10 relative">
       <div className="max-w-350 mx-auto px-6 md:px-12">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start">
@@ -40,12 +40,12 @@ export default function Faq() {
             </div>
             
             <div className="mt-8">
-              <p className="text-zinc-400 text-lg md:text-xl font-medium">
+              <p className="text-zinc-400 light:text-zinc-600 text-lg md:text-xl font-medium">
                 Got specific questions?
               </p>
               <a 
                 href="#contact" 
-                className="text-[#EF4444] text-lg md:text-xl font-medium mt-1 inline-block hover:opacity-70 transition-opacity"
+                className="text-[#a3e635] light:text-[#84cc16] text-lg md:text-xl font-medium mt-1 inline-block hover:opacity-70 transition-opacity"
               >
                 Contact Me
               </a>
@@ -60,17 +60,17 @@ export default function Faq() {
               return (
                 <div 
                   key={index} 
-                  className="border border-white/10 rounded-2xl bg-[#111111] overflow-hidden transition-colors duration-300 hover:border-white/20"
+                  className="border border-white/10 light:border-black/10 rounded-2xl bg-[#111111] light:bg-white overflow-hidden transition-colors duration-300 hover:border-white/20 light:hover:border-black/20 shadow-sm"
                 >
                   <button 
                     onClick={() => toggleFaq(index)}
                     className="w-full p-6 md:p-8 flex items-center justify-between text-left group"
                   >
-                    <h3 className={`text-xl md:text-2xl font-medium tracking-tight pr-8 transition-colors duration-300 ${isOpen ? "text-white" : "text-zinc-300 group-hover:text-white"}`}>
+                    <h3 className={`text-xl md:text-2xl font-medium tracking-tight pr-8 transition-colors duration-300 ${isOpen ? "text-white light:text-black" : "text-zinc-300 light:text-zinc-600 group-hover:text-white light:group-hover:text-black"}`}>
                       {faq.question}
                     </h3>
                     
-                    <div className="shrink-0 text-[#EF4444]">
+                    <div className="shrink-0 text-[#a3e635] light:text-[#84cc16]">
                       {isOpen ? <Minus size={24} /> : <Plus size={24} />}
                     </div>
                   </button>
@@ -84,7 +84,7 @@ export default function Faq() {
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                       >
                         <div className="px-6 md:px-8 pb-6 md:pb-8 pt-0">
-                          <p className="text-zinc-400 text-lg leading-relaxed">
+                          <p className="text-zinc-400 light:text-zinc-600 text-lg leading-relaxed">
                             {faq.answer}
                           </p>
                         </div>

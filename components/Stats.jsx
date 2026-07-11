@@ -65,7 +65,7 @@ export default function Stats() {
             >
               <div className="text-7xl md:text-8xl font-bold text-white mb-4 flex items-baseline tracking-tighter">
                 <Counter from={0} to={stat.value} duration={2.5} />
-                <span className="text-[#EF4444]">{stat.suffix}</span>
+                <span className="text-[#a3e635]">{stat.suffix}</span>
               </div>
               <p className="text-zinc-500 font-medium text-lg max-w-[200px]">
                 {stat.label}

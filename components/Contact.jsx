@@ -1,6 +1,8 @@
 // components/Contact.jsx
 'use client'
 
+import { MessageCircle } from 'lucide-react';
+
 export default function Contact() {
   return (
     <section id="contact" className="w-full bg-[#0a0a0a] relative overflow-hidden border-t border-white/10 pt-32 pb-24 md:pt-48 md:pb-32">
@@ -9,7 +11,7 @@ export default function Contact() {
       <div className="absolute inset-0 w-full h-full z-0 opacity-80 md:opacity-100 pointer-events-none flex justify-start">
         <div className="w-full md:w-3/4 h-full relative">
           <video 
-            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260307_083826_e938b29f-a43a-41ec-a153-3d4730578ab8.mp4" 
+            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260702_081127_0992a171-d3c6-4978-8213-0ec5df8b6d63.mp4" 
             autoPlay 
             loop 
             muted 
@@ -39,9 +41,23 @@ export default function Contact() {
             I am actively seeking <span className="text-white font-medium">internship</span> and <span className="text-white font-medium">full-time</span> roles. Whether you are hiring, building a team, or just want to talk tech—my inbox is always open.
           </p>
           
-          <a href="mailto:krjhasatyam128@gmail.com" className="w-full md:w-auto flex items-center justify-center px-12 py-5 rounded-full border border-[#EF4444] text-[#EF4444] text-sm font-sans font-medium tracking-[0.2em] uppercase hover:bg-[#EF4444] hover:text-white transition-all duration-300 bg-black/20 backdrop-blur-sm mt-2">
-            SAY HELLO
-          </a>
+          <div className="flex flex-col md:flex-row items-center gap-4 w-full md:w-auto mt-2">
+            <a 
+              href="mailto:krjhasatyam128@gmail.com" 
+              className="w-full md:w-auto flex items-center justify-center px-8 py-4 rounded-full border border-[#a3e635] text-[#a3e635] text-sm font-sans font-medium tracking-[0.15em] uppercase hover:bg-[#a3e635] hover:text-white transition-all duration-300 bg-black/20 backdrop-blur-sm whitespace-nowrap"
+            >
+              SAY HELLO
+            </a>
+            <a 
+              href="https://wa.me/916200964876?text=Hi%20Satyam%2C%20I%20found%20your%20portfolio%20and%20wanted%20to%20connect." 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="w-full md:w-auto flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-[#0a0a0a] text-sm font-sans font-medium tracking-[0.15em] uppercase hover:bg-zinc-200 transition-all duration-300 shadow-lg shadow-white/10 whitespace-nowrap"
+            >
+              <MessageCircle size={18} />
+              Chat on WhatsApp
+            </a>
+          </div>
         </div>
       </div>
     </section>

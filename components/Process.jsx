@@ -90,7 +90,7 @@ export default function Process() {
               className="w-[300px] md:w-[400px] lg:w-[450px] shrink-0 border-l border-white/10 pl-8 md:pl-12 pr-8 md:pr-16 flex flex-col justify-between"
             >
               <div className="text-2xl md:text-3xl font-medium text-white/60 tracking-wider">
-                {step.id}<span className="text-[#EF4444]">.</span>
+                {step.id}<span className="text-[#a3e635]">.</span>
               </div>
 
               <div className="flex flex-col gap-6">

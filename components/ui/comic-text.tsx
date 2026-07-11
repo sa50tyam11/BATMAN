@@ -21,7 +21,7 @@ export function ComicText({
     throw new Error("children must be a string");
   }
 
-  const dotColor = "#EF4444";
+  const dotColor = "#990000";
   const backgroundColor = "#FACC15";
 
   return (

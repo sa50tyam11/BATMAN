@@ -2,18 +2,32 @@
 'use client'
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 export default function Hero() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <section id="home" className="relative w-full h-screen overflow-hidden bg-[#0a0a0a]">
-      
-      {/* Background Image & Editorial Gradients */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <img
-          src="/hero-coding.png" 
-          alt="Satyam Kumar Jha Coding"
-          className="w-full h-full object-cover object-center"
-        />
+
+      {/* Background Video & Editorial Gradients */}
+      <div className="absolute inset-0 z-0 pointer-events-none bg-[#0a0a0a]">
+        {mounted && (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="/hero-bg.jpg"
+            className="w-full h-full object-cover object-center"
+          >
+            <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_204221_5339e40b-e73d-4ab0-9c65-79c18c66fd50.mp4" type="video/mp4" />
+          </video>
+        )}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/90 via-[#0a0a0a]/20 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/20 to-transparent opacity-80" />
       </div>
@@ -32,9 +46,9 @@ export default function Hero() {
 
       {/* Main Typography Block */}
       <div className="relative z-10 w-full h-full max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col justify-center pointer-events-none">
-        
+
         <div className="flex flex-col items-start mt-8 md:mt-0 pointer-events-auto">
-          
+
           {/* FIXED: Scaled down from text-3xl to text-2xl */}
           <motion.span
             initial={{ opacity: 0, x: -20 }}
