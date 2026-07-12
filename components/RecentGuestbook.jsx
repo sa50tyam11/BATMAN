@@ -24,23 +24,18 @@ export default async function RecentGuestbook() {
           </p>
         </div>
 
-        <div className="relative w-full overflow-hidden mt-12 py-4">
-          <div className="animate-marquee flex gap-8">
+        <div className="relative w-full overflow-hidden mt-8 py-4">
+          <div className="animate-marquee flex gap-4 md:gap-6" style={{ animationDuration: '40s' }}>
             {[...messages, ...messages, ...messages, ...messages].map((msg, idx) => (
-              <div key={`${msg.id}-${idx}`} className="p-8 rounded-2xl bg-[#111111] light:bg-white border border-white/5 light:border-black/5 flex gap-4 shadow-sm w-[300px] md:w-[400px] shrink-0 h-full">
+              <div key={`${msg.id}-${idx}`} className="p-4 rounded-xl bg-[#111111] light:bg-white border border-white/5 light:border-black/5 flex gap-3 shadow-sm w-[260px] md:w-[300px] shrink-0 h-full">
                 <img 
                   src={msg.avatar_url || 'https://www.gravatar.com/avatar/?d=mp'} 
                   alt={`${msg.name}'s avatar`}
-                  className="w-12 h-12 rounded-full bg-zinc-800 object-cover shrink-0"
+                  className="w-10 h-10 rounded-full bg-zinc-800 object-cover shrink-0"
                 />
-                <div className="flex flex-col w-full overflow-hidden">
-                  <div className="flex items-baseline gap-3 mb-2">
-                    <span className="text-white light:text-black font-sans font-medium truncate">{msg.name}</span>
-                    <span className="text-zinc-500 light:text-zinc-500 text-xs font-sans whitespace-nowrap">
-                      {formatDistanceToNow(new Date(msg.created_at), { addSuffix: true })}
-                    </span>
-                  </div>
-                  <p className="text-zinc-300 light:text-zinc-700 font-sans leading-relaxed text-sm whitespace-pre-wrap line-clamp-4">
+                <div className="flex flex-col w-full overflow-hidden justify-center">
+                  <span className="text-white light:text-black font-sans font-medium text-sm truncate">{msg.name}</span>
+                  <p className="text-zinc-400 light:text-zinc-500 font-sans leading-snug text-xs whitespace-pre-wrap line-clamp-2 mt-0.5">
                     {msg.message}
                   </p>
                 </div>
