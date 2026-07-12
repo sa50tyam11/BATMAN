@@ -20,31 +20,33 @@ export default async function RecentGuestbook() {
         <div className="mb-16 md:mb-24 flex flex-col items-center md:items-start">
           <ComicText fontSize={3.5}>GUESTBOOK</ComicText>
           <p className="mt-4 text-xl md:text-2xl font-serif italic tracking-wide text-center md:text-left text-zinc-400 light:text-zinc-600">
-            Messages from <span className="text-white light:text-black">friends</span> and <span className="text-[#a3e635] light:text-[#84cc16]">visitors</span>.
+            You made it this far. Might as well leave a <span className="text-[#a3e635] light:text-[#84cc16]">mark</span>.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {messages.map((msg) => (
-            <div key={msg.id} className="p-8 rounded-2xl bg-[#111111] light:bg-white border border-white/5 light:border-black/5 flex gap-4 shadow-sm">
-              <img 
-                src={msg.avatar_url || 'https://www.gravatar.com/avatar/?d=mp'} 
-                alt={`${msg.name}'s avatar`}
-                className="w-12 h-12 rounded-full bg-zinc-800 object-cover shrink-0"
-              />
-              <div className="flex flex-col w-full">
-                <div className="flex items-baseline gap-3 mb-2">
-                  <span className="text-white light:text-black font-sans font-medium">{msg.name}</span>
-                  <span className="text-zinc-500 light:text-zinc-500 text-xs font-sans">
-                    {formatDistanceToNow(new Date(msg.created_at), { addSuffix: true })}
-                  </span>
+        <div className="relative w-full overflow-hidden mt-12 py-4">
+          <div className="animate-marquee flex gap-8">
+            {[...messages, ...messages, ...messages, ...messages].map((msg, idx) => (
+              <div key={`${msg.id}-${idx}`} className="p-8 rounded-2xl bg-[#111111] light:bg-white border border-white/5 light:border-black/5 flex gap-4 shadow-sm w-[300px] md:w-[400px] shrink-0 h-full">
+                <img 
+                  src={msg.avatar_url || 'https://www.gravatar.com/avatar/?d=mp'} 
+                  alt={`${msg.name}'s avatar`}
+                  className="w-12 h-12 rounded-full bg-zinc-800 object-cover shrink-0"
+                />
+                <div className="flex flex-col w-full overflow-hidden">
+                  <div className="flex items-baseline gap-3 mb-2">
+                    <span className="text-white light:text-black font-sans font-medium truncate">{msg.name}</span>
+                    <span className="text-zinc-500 light:text-zinc-500 text-xs font-sans whitespace-nowrap">
+                      {formatDistanceToNow(new Date(msg.created_at), { addSuffix: true })}
+                    </span>
+                  </div>
+                  <p className="text-zinc-300 light:text-zinc-700 font-sans leading-relaxed text-sm whitespace-pre-wrap line-clamp-4">
+                    {msg.message}
+                  </p>
                 </div>
-                <p className="text-zinc-300 light:text-zinc-700 font-sans leading-relaxed text-sm whitespace-pre-wrap">
-                  {msg.message}
-                </p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         <div className="w-full flex justify-center mt-16 relative z-10">
