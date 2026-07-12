@@ -67,12 +67,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${barlow.variable} ${instrument.variable} font-sans bg-[#0a0a0a] light:bg-[#fafafa] text-white light:text-[#111111] antialiased selection:bg-[#a3e635] selection:text-white transition-colors duration-300`}
+        className={`${barlow.variable} ${instrument.variable} font-sans bg-[#0a0a0a] light:bg-white text-white light:text-[#111111] antialiased selection:bg-[#a3e635] selection:text-white transition-colors duration-300`}
         suppressHydrationWarning
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >
