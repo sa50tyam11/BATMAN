@@ -28,17 +28,20 @@ export const viewport = {
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://satyamseno.netlify.app'),
+  metadataBase: new URL('https://satyamkrjha.site'),
   title: "Satyam Kumar Jha | Full Stack Developer",
   description: "Full Stack Developer building fast, premium web platforms for clients. Founder of SENO Studio.",
+  alternates: {
+    canonical: 'https://satyamkrjha.site',
+  },
   openGraph: {
     title: "Satyam Kumar Jha | Full Stack Developer",
     description: "Full Stack Developer building fast, premium web platforms for clients. Founder of SENO Studio.",
-    url: "https://satyamseno.netlify.app",
+    url: "https://satyamkrjha.site",
     siteName: "Satyam Kumar Jha",
     images: [
       {
-        url: "/ogtag.jpg",
+        url: "https://satyamkrjha.site/ogtag.jpg",
         width: 1200,
         height: 630,
         alt: "Satyam Kumar Jha - Full Stack Developer Portfolio",
@@ -51,12 +54,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Satyam Kumar Jha | Full Stack Developer",
     description: "Full Stack Developer building fast, premium web platforms for clients.",
-    images: ["/ogtag.jpg"],
+    images: ["https://satyamkrjha.site/ogtag.jpg"],
   },
   icons: {
-    icon: "/portrait-reveal.jpg",
-    shortcut: "/portrait-reveal.jpg",
-    apple: "/portrait-reveal.jpg",
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/senol.png",
   },
 };
 
