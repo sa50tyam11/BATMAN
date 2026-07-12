@@ -58,14 +58,21 @@ export default function About() {
               title="Founder, SENO Studio — Full Stack Developer"
               handle="satyam.codes"
               status="Available for Work"
-              contactText="Let's Talk"
+              contactText="Download Resume"
               avatarUrl="/aboutme.png"
               showUserInfo={true}
               enableTilt={true}
               enableMobileTilt={false}
               behindGlowColor="rgba(255, 255, 255, 0.15)"
               innerGradient="linear-gradient(145deg, #1a0a0a 0%, #333333 100%)"
-              onContactClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              onContactClick={() => {
+                const link = document.createElement('a');
+                link.href = '/skjresume.pdf';
+                link.download = 'Satyam_Kumar_Jha_Resume.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
             />
           </div>
 
