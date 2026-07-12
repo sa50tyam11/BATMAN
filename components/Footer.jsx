@@ -2,8 +2,16 @@
 'use client'
 import { ArrowUpRight } from 'lucide-react';
 import { ParticleTextEffect } from "@/components/ui/interactive-text-particle";
+import { useTheme } from 'next-themes';
+import { useState, useEffect } from 'react';
 
 export default function Footer() {
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   const socialLinks = [
     { name: 'Github', url: 'https://github.com/sa50tyam11' },
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/satyamkrjha5011' },
@@ -64,7 +72,9 @@ export default function Footer() {
 
       <div className="w-full bg-[#050505] light:bg-[#eeeeee] text-white light:text-black overflow-hidden flex justify-between items-end h-[200px] md:h-[350px] lg:h-[450px] px-6 md:px-12 lg:px-20 relative mt-12 border-t border-white/5 light:border-black/5">
         <div className="absolute bottom-[-15%] md:bottom-[-20%] left-[-2%] w-[80%] h-[120%] pointer-events-auto">
-          <ParticleTextEffect text="SATYAM" className="w-full h-full object-contain object-left-bottom" colors={['ffffff']} particleDensity={4} animationForce={60} />
+          {mounted && (
+            <ParticleTextEffect text="SATYAM" className="w-full h-full object-contain object-left-bottom" colors={resolvedTheme === 'light' ? ['111111'] : ['ffffff']} particleDensity={4} animationForce={60} />
+          )}
         </div>
         <div className="flex flex-col text-right pb-6 md:pb-12 lg:pb-16 w-full justify-end items-end pointer-events-none relative z-10">
           <h2 className="text-[6vw] md:text-[5vw] lg:text-[4vw] font-sans font-medium uppercase leading-[0.9] tracking-tighter text-white/90 light:text-black/90">
