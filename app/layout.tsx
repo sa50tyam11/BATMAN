@@ -31,6 +31,10 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://satyamkrjha.site'),
   title: "Satyam Kumar Jha | Full Stack Developer",
   description: "Full Stack Developer building fast, premium web platforms for clients. Founder of SENO Studio.",
+  keywords: ["Satyam Kumar Jha", "Satya", "Portfolio", "Full Stack Developer", "SENO Studio", "Web Developer", "Software Engineer", "React Developer", "Next.js Developer"],
+  authors: [{ name: "Satyam Kumar Jha", url: "https://satyamkrjha.site" }],
+  creator: "Satyam Kumar Jha",
+  publisher: "Satyam Kumar Jha",
   alternates: {
     canonical: 'https://satyamkrjha.site',
   },
