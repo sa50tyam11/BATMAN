@@ -4,6 +4,7 @@ import ProjectCard from './ProjectCard';
 import { ComicText } from '@/components/ui/comic-text';
 
 const projects = [
+  { title: "Sur-Sansar", industry: "Interactive Music Web App", scope: "Next.js + Zustand + Howler.js", image: "/sursansar.png", videoUrl: "", link: "https://github.com/sa50tyam11/SUR-SANSAR" },
   { title: "Visionary Opticals", industry: "Retail & Eyewear", scope: "Website Design + E-commerce", image: "/opticle.png", videoUrl: "", link: "https://seno-eye-demo.netlify.app/" },
   { title: "Real Estate Business", industry: "Real Estate", scope: "Property Buying & Selling", image: "/e-state.png", videoUrl: "", link: "https://seno-estate.netlify.app/" },
   { title: "Muzaffarpur Bangles", industry: "E-Commerce", scope: "Full-Stack Web App & Admin", image: "/bangle.png", videoUrl: "", link: "https://muzaffarpurbangles.netlify.app" }
