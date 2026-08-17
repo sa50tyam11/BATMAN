@@ -1,0 +1,51 @@
+---
+title: "Building Sur-Sansar: An Interactive Musical Map of India"
+description: "How I built an immersive Next.js web application that lets users explore the diverse regional music of India through an interactive map."
+date: "2026-08-17"
+tags: ["nextjs", "react", "zustand", "howler.js", "projects"]
+published: true
+---
+
+# Building Sur-Sansar: An Interactive Musical Map of India 🇮🇳 🎵
+
+India is a land of incredible diversity, not just in its landscapes and cultures, but especially in its music. From the soulful Baul Sangeet of West Bengal to the classical Carnatic melodies of Tamil Nadu, every region has its own unique sound. 
+
+To celebrate this, I built **Sur-Sansar (Bharat Ke Sur)**, an interactive, immersive web application that allows users to explore the rich traditional folk and classical music of India. 
+
+![Sur-Sansar Application Preview](/sursansar.png)
+
+## The Core Concept
+
+The idea was simple but ambitious: present users with a beautifully rendered map of India and allow them to click on any state or union territory to instantly hear authentic regional music native to that area. It needed to be visually stunning, highly responsive, and the audio experience had to be flawless.
+
+## 🛠️ The Tech Stack
+
+To bring this vision to life, I carefully selected a modern technology stack capable of handling complex UI interactions and smooth audio playback:
+
+- **Framework**: Next.js (App Router) & React 19
+- **Styling**: Tailwind CSS v4
+- **Animations**: Framer Motion
+- **Audio Engine**: Howler.js
+- **State Management**: Zustand
+- **Map Data**: `@svg-maps/india`
+
+## 🚀 How I Built It
+
+Building Sur-Sansar involved solving several interesting UI and data challenges:
+
+### 1. The Interactive SVG Map
+At the heart of the application is a fully clickable, hover-responsive map of India representing all 36 states and union territories. We integrated `@svg-maps/india` to render the SVG paths. I then customized the SVG scaling and applied dynamic Tailwind fill colors to handle hover states and active selections, giving the map a glassy, premium aesthetic.
+
+### 2. A Robust Audio Architecture
+Handling audio in the browser can be notoriously tricky. Standard HTML5 `<audio>` tags are prone to overlapping sounds and state-sync issues when navigating between components. 
+
+To solve this, I implemented a robust audio engine using **Howler.js**, wrapped entirely in a global **Zustand** store. This architecture ensures that selecting a new state instantly stops the previous track and smoothly transitions to the new one, coordinating perfectly with the floating audio player UI.
+
+### 3. Curation & UX
+A huge part of the project was curating distinct, high-quality folk and classical tracks mapped perfectly to their respective states (like Chhath Puja music in Bihar). To elevate the user experience, I used **Framer Motion** for micro-animations, making the interface feel alive and tactile.
+
+## Final Thoughts
+
+Sur-Sansar was a fantastic project that perfectly blended technical challenges (managing global audio state, SVG manipulation) with cultural appreciation. It's one of those projects where the "controlled chaos" of web development comes together into a beautiful, harmonious experience.
+
+Feel free to check out the project code on my [GitHub](https://github.com/sa50tyam11/SUR-SANSAR) or play around with it live!
