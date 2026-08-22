@@ -12,8 +12,6 @@ export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
 
-  // The /resume page has its own top bar — hide the global nav there
-  if (pathname === '/resume') return null;
 
   useEffect(() => {
     fetch('/api/admin/check')
@@ -99,6 +97,9 @@ export default function Navbar() {
   if (isAdmin) {
     navLinks.push({ name: 'ADMIN', href: '/admin/blog' });
   }
+
+  // The /resume page has its own top bar — hide the global nav there
+  if (pathname === '/resume') return null;
 
   return (
     <>
