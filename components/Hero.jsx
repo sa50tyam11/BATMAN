@@ -49,39 +49,34 @@ export default function Hero() {
 
         <div className="flex flex-col items-start mt-8 md:mt-0 pointer-events-auto">
 
-          <motion.span
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-zinc-300 font-serif italic text-lg md:text-2xl tracking-widest uppercase mb-2 md:mb-4 drop-shadow-lg"
-          >
-            Full Stack Developer
-          </motion.span>
-
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-white font-serif text-[18vw] md:text-[9vw] leading-[0.85] tracking-tighter uppercase drop-shadow-2xl"
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-white font-serif text-[14vw] md:text-[8vw] leading-[0.85] tracking-tighter uppercase drop-shadow-2xl"
           >
-            NEXT.JS<br />
-            / REACT
+            FULL STACK<br />
+            DEVELOPER
           </motion.h1>
 
           <motion.div
             initial={{ width: 0 }}
             animate={{ width: "60px" }}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
             className="h-[1px] bg-white/40 my-5 md:my-8"
           />
 
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1 }}
+            transition={{ duration: 0.8, delay: 0.9 }}
             className="text-zinc-200 font-sans font-light text-sm md:text-lg max-w-xs md:max-w-sm leading-relaxed tracking-wide drop-shadow-md"
           >
-            BCA student building production web apps end-to-end — frontend, backend, and deployment. Founder of SENO Studio.
+            BCA student building production web apps end-to-end using{' '}
+            <strong className="text-white font-semibold">Next.js</strong>,{' '}
+            <strong className="text-white font-semibold">React</strong>, and{' '}
+            <strong className="text-white font-semibold">TypeScript</strong>{' '}
+            — frontend, backend, and deployment. Founder of SENO Studio.
           </motion.p>
         </div>
 
