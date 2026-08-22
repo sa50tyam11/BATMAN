@@ -107,7 +107,7 @@ export default function Footer() {
       <div className="w-full bg-[#050505] light:bg-[#eeeeee] text-white light:text-black overflow-hidden flex justify-between items-end h-[200px] md:h-[350px] lg:h-[450px] px-6 md:px-12 lg:px-20 relative mt-12 border-t border-white/5 light:border-black/5">
         <div className="absolute bottom-[-15%] md:bottom-[-20%] left-[-2%] w-[80%] h-[120%] pointer-events-auto">
           {mounted && (
-            <ParticleTextEffect text="SATYAM KR JHA" className="w-full h-full object-contain object-left-bottom" colors={resolvedTheme === 'light' ? ['111111'] : ['ffffff']} particleDensity={4} animationForce={60} />
+            <ParticleTextEffect text="SATYAM" className="w-full h-full object-contain object-left-bottom" colors={resolvedTheme === 'light' ? ['111111'] : ['ffffff']} particleDensity={4} animationForce={60} />
           )}
         </div>
       </div>
