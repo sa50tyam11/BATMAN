@@ -61,7 +61,7 @@ export default function About() {
               innerGradient="linear-gradient(145deg, #1a0a0a 0%, #333333 100%)"
               onContactClick={() => {
                 const link = document.createElement('a');
-                link.href = '/skjresume.pdf';
+                link.href = '/resume1.pdf';
                 link.download = 'Satyam_Kumar_Jha_Resume.pdf';
                 document.body.appendChild(link);
                 link.click();

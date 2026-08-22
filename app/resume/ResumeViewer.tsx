@@ -35,7 +35,7 @@ export default function ResumeViewer() {
           {/* Actions */}
           <div className="flex items-center gap-3">
             <a
-              href="/skjresume.pdf"
+              href="/resume1.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full border border-white/15 text-white text-[10px] font-bold tracking-widest uppercase hover:border-white/40 transition-colors"
@@ -44,7 +44,7 @@ export default function ResumeViewer() {
               Open in tab
             </a>
             <a
-              href="/skjresume.pdf"
+              href="/resume1.pdf"
               download="Satyam_Kumar_Jha_Resume.pdf"
               className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#a3e635] text-black text-[10px] font-bold tracking-widest uppercase hover:bg-[#bef264] transition-colors"
             >
@@ -82,7 +82,7 @@ export default function ResumeViewer() {
               krjhasatyam128@gmail.com
             </a>
             <a
-              href="/skjresume.pdf"
+              href="/resume1.pdf"
               download="Satyam_Kumar_Jha_Resume.pdf"
               className="flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#a3e635] text-black text-xs font-bold tracking-widest uppercase hover:bg-[#bef264] transition-colors"
             >
@@ -111,7 +111,7 @@ export default function ResumeViewer() {
 
           {/* The actual PDF embed — works on all modern browsers */}
           <object
-            data="/skjresume.pdf"
+            data="/resume1.pdf"
             type="application/pdf"
             className="w-full bg-[#111]"
             style={{ height: 'calc(100vh - 80px)', minHeight: 700 }}
@@ -125,7 +125,7 @@ export default function ResumeViewer() {
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <a
-                  href="/skjresume.pdf"
+                  href="/resume1.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 text-white text-xs font-medium tracking-wider hover:border-white/40 transition-colors"
@@ -134,7 +134,7 @@ export default function ResumeViewer() {
                   Open PDF
                 </a>
                 <a
-                  href="/skjresume.pdf"
+                  href="/resume1.pdf"
                   download="Satyam_Kumar_Jha_Resume.pdf"
                   className="flex items-center gap-2 px-6 py-3 rounded-full bg-[#a3e635] text-black text-xs font-bold tracking-widest uppercase hover:bg-[#bef264] transition-colors"
                 >
@@ -161,7 +161,7 @@ export default function ResumeViewer() {
           </p>
           <div className="flex items-center gap-3">
             <a
-              href="/skjresume.pdf"
+              href="/resume1.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/15 text-white text-[10px] font-bold tracking-widest uppercase hover:border-white/30 transition-colors"
@@ -170,7 +170,7 @@ export default function ResumeViewer() {
               Open in new tab
             </a>
             <a
-              href="/skjresume.pdf"
+              href="/resume1.pdf"
               download="Satyam_Kumar_Jha_Resume.pdf"
               className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#a3e635] text-black text-[10px] font-bold tracking-widest uppercase hover:bg-[#bef264] transition-colors"
             >
