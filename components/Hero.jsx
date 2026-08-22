@@ -107,15 +107,12 @@ export default function Hero() {
           <ArrowUpRight size={16} className="group-hover:rotate-45 transition-transform duration-300" />
         </a>
 
-        {/* Secondary CTA: Download Resume */}
+        {/* Secondary CTA: View Resume */}
         <a
-          href="/skjresume.pdf"
-          download="Satyam_Kumar_Jha_Resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="/resume"
           className="group flex items-center justify-between w-[180px] md:w-[200px] px-6 py-3.5 md:py-4 border border-[#a3e635]/60 bg-transparent backdrop-blur-md text-[#a3e635] font-sans text-[10px] md:text-xs font-medium tracking-widest uppercase hover:bg-[#a3e635] hover:text-black transition-all duration-300 rounded-sm shadow-xl pointer-events-auto mb-[-2px]"
         >
-          <span>Download Resume</span>
+          <span>View Resume</span>
           <Download size={16} className="group-hover:translate-y-0.5 transition-transform duration-300" />
         </a>
       </motion.div>

@@ -2,7 +2,7 @@
 'use client'
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ArrowUpRight, Download } from 'lucide-react';
+import { X, ArrowUpRight } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { usePathname, useRouter } from 'next/navigation';
 
@@ -111,15 +111,12 @@ export default function Navbar() {
 
           <div className="flex items-center gap-4">
             <ThemeToggle />
-            {/* Persistent Resume button — accessible from any scroll position */}
+            {/* Persistent Resume button — links to /resume page */}
             <a
-              href="/skjresume.pdf"
-              download="Satyam_Kumar_Jha_Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/resume"
+              onClick={(e) => handleNavClick(e, '/resume')}
               className="hidden md:flex items-center gap-2 px-4 py-2 rounded-full bg-[#a3e635] text-black text-[10px] font-bold tracking-widest uppercase hover:bg-[#bef264] transition-colors shadow-sm shadow-[#a3e635]/20"
             >
-              <Download size={12} />
               Resume
             </a>
             <button
@@ -186,19 +183,6 @@ export default function Navbar() {
                     krjhasatyam128@gmail.com
                   </a>
                 </div>
-
-                {/* Resume — visible in mobile menu */}
-                <a
-                  href="/skjresume.pdf"
-                  download="Satyam_Kumar_Jha_Resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setIsOpen(false)}
-                  className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[#a3e635] text-black text-[10px] font-bold tracking-widest uppercase hover:bg-[#bef264] transition-colors w-fit"
-                >
-                  <Download size={14} />
-                  Download Resume
-                </a>
 
                 <div className="flex flex-col gap-4">
                   <span className="text-zinc-600 text-[10px] font-bold tracking-widest uppercase">(SOCIALS)</span>
