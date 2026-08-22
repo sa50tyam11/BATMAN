@@ -2,6 +2,7 @@
 'use client'
 import { motion } from 'framer-motion';
 import ProfileCard from './ProfileCard';
+import GitHubGraph from './GitHubGraph';
 
 export default function About() {
   // Only defensible, project-backed technologies
@@ -196,6 +197,18 @@ export default function About() {
               ))}
             </div>
           </div>
+
+          {/* GitHub Contribution Graph */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="pt-8 border-t border-white/10 light:border-black/10 mt-4"
+          >
+            <span className="text-zinc-500 text-[10px] font-bold tracking-[0.2em] uppercase mb-6 block">(GITHUB ACTIVITY)</span>
+            <GitHubGraph />
+          </motion.div>
 
         </div>
       </div>
