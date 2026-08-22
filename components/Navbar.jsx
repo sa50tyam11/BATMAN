@@ -1,13 +1,16 @@
 // components/Navbar.jsx
 'use client'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ArrowUpRight, Download } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
+import { usePathname, useRouter } from 'next/navigation';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     fetch('/api/admin/check')
@@ -19,6 +22,60 @@ export default function Navbar() {
       })
       .catch(console.error);
   }, []);
+
+  // Close menu on route change
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
+
+  // Smooth scroll to a section, offsetting for the fixed navbar
+  const scrollToSection = useCallback((id) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const navHeight = 80; // approx height of the fixed nav bar
+    const top = el.getBoundingClientRect().top + window.scrollY - navHeight;
+    window.scrollTo({ top, behavior: 'smooth' });
+  }, []);
+
+  // Handle nav link clicks: hash links scroll smoothly, page links use router
+  const handleNavClick = useCallback((e, href) => {
+    e.preventDefault();
+    setIsOpen(false);
+
+    // Pure hash on same page (e.g., #projects)
+    if (href.startsWith('#')) {
+      scrollToSection(href.slice(1));
+      return;
+    }
+
+    // Hash link on home page (e.g., /#about)
+    if (href.startsWith('/#')) {
+      const sectionId = href.slice(2);
+      if (pathname === '/') {
+        // Already on home — just scroll
+        scrollToSection(sectionId);
+      } else {
+        // Navigate to home first, then scroll after mount
+        router.push('/');
+        sessionStorage.setItem('scrollTo', sectionId);
+      }
+      return;
+    }
+
+    // Regular page navigation
+    router.push(href);
+  }, [pathname, router, scrollToSection]);
+
+  // On mount / route change: check if we need to scroll to a stored section
+  useEffect(() => {
+    if (pathname !== '/') return;
+    const target = sessionStorage.getItem('scrollTo');
+    if (!target) return;
+    sessionStorage.removeItem('scrollTo');
+    // Give the page a moment to render
+    const timer = setTimeout(() => scrollToSection(target), 350);
+    return () => clearTimeout(timer);
+  }, [pathname, scrollToSection]);
 
   const socialLinks = [
     { name: 'Github', url: 'https://github.com/sa50tyam11' },
@@ -32,6 +89,7 @@ export default function Navbar() {
     { name: 'ABOUT', href: '/#about' },
     { name: 'PROJECTS', href: '/projects' },
     { name: 'EXPERIENCE', href: '/#experience' },
+    { name: 'RESUME', href: '/resume' },
     { name: 'CONTACT', href: '/#contact' }
   ];
 
@@ -84,7 +142,7 @@ export default function Navbar() {
             initial={{ x: "100%" }}
             animate={{ x: "0%" }}
             exit={{ x: "100%" }}
-            transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
+            transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
             className="fixed top-0 right-0 w-full md:w-[500px] h-screen bg-[#0d0d0d]/95 light:bg-white/95 backdrop-blur-xl border-l border-white/10 light:border-black/10 z-[120] flex flex-col"
           >
             {/* Header (Fixed at top) */}
@@ -103,12 +161,19 @@ export default function Navbar() {
               
               {/* Navigation Links */}
               <div className="flex flex-col gap-2 pb-12">
-                {navLinks.map((item) => (
+                {navLinks.map((item, i) => (
                   <div key={item.name} className="group relative overflow-hidden py-2 border-b border-white/5 light:border-black/5">
-                    <a href={item.href} onClick={() => setIsOpen(false)} className="text-white light:text-black text-5xl md:text-6xl font-black tracking-tighter uppercase font-sans hover:text-[#a3e635] light:hover:text-[#84cc16] flex items-center gap-4 transition-colors">
+                    <motion.a
+                      href={item.href}
+                      initial={{ x: 40, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ duration: 0.4, delay: 0.05 * i, ease: [0.25, 0.1, 0.25, 1] }}
+                      onClick={(e) => handleNavClick(e, item.href)}
+                      className="text-white light:text-black text-5xl md:text-6xl font-black tracking-tighter uppercase font-sans hover:text-[#a3e635] light:hover:text-[#84cc16] flex items-center gap-4 transition-colors cursor-pointer"
+                    >
                       {item.name}
                       <span className="text-[#a3e635] light:text-[#84cc16] text-xl opacity-0 group-hover:opacity-100 transition-opacity">■</span>
-                    </a>
+                    </motion.a>
                   </div>
                 ))}
               </div>

@@ -3,6 +3,7 @@ import { useRef } from 'react';
 import { ComicText } from '@/components/ui/comic-text';
 import { ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 // Homepage: 2 featured projects only, with full case-study format
 // Additional projects archived at /projects
@@ -150,13 +151,13 @@ export default function Work() {
 
         {/* View All Projects Button */}
         <div className="w-full flex justify-center mt-24 relative z-10">
-          <a
+          <Link
             href="/projects"
             className="group relative inline-flex items-center justify-center gap-3 px-12 py-4 rounded-full border border-[#a3e635] light:border-[#84cc16] text-[#a3e635] light:text-[#84cc16] text-sm md:text-base font-bold tracking-widest uppercase hover:bg-[#a3e635] light:hover:bg-[#84cc16] hover:text-black transition-all duration-300"
           >
             VIEW ALL PROJECTS
             <ArrowUpRight size={18} className="group-hover:rotate-45 transition-transform duration-300" />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

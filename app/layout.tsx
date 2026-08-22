@@ -2,6 +2,7 @@ import { ClerkProvider } from '@clerk/nextjs'
 import { Barlow, Instrument_Serif } from 'next/font/google'
 import Navbar from '@/components/Navbar'
 import { ThemeProvider } from '@/components/theme-provider'
+import SmoothScroll from '@/components/SmoothScroll'
 import './globals.css'
 
 const barlow = Barlow({
@@ -79,7 +80,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <ClerkProvider>
             {/* Sign in/sign up removed from global nav — auth only used on /guestbook */}
             <Navbar />
-            {children}
+            <SmoothScroll>
+              {children}
+            </SmoothScroll>
           </ClerkProvider>
         </ThemeProvider>
       </body>

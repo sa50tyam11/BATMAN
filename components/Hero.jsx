@@ -2,10 +2,18 @@
 'use client'
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Download } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
+
+  const scrollToProjects = useCallback((e) => {
+    e.preventDefault();
+    const el = document.getElementById('projects');
+    if (!el) return;
+    const top = el.getBoundingClientRect().top + window.scrollY - 80;
+    window.scrollTo({ top, behavior: 'smooth' });
+  }, []);
 
   useEffect(() => {
     setMounted(true);
@@ -92,6 +100,7 @@ export default function Hero() {
         {/* Primary CTA: View Projects */}
         <a
           href="#projects"
+          onClick={scrollToProjects}
           className="group flex items-center justify-between w-[180px] md:w-[200px] px-6 py-3.5 md:py-4 border border-white/20 bg-white/10 backdrop-blur-md text-white font-sans text-[10px] md:text-xs font-medium tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300 rounded-sm shadow-xl pointer-events-auto mb-[-2px]"
         >
           <span>View Projects</span>

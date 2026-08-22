@@ -3,19 +3,54 @@
 import { ArrowUpRight } from 'lucide-react';
 import { ParticleTextEffect } from "@/components/ui/interactive-text-particle";
 import { useTheme } from 'next-themes';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
 
 export default function Footer() {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  const scrollToSection = useCallback((id) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const top = el.getBoundingClientRect().top + window.scrollY - 80;
+    window.scrollTo({ top, behavior: 'smooth' });
+  }, []);
+
+  const handleFooterLink = useCallback((e, url) => {
+    // Only intercept hash-anchor links
+    if (!url.startsWith('/#')) return;
+    e.preventDefault();
+    const sectionId = url.slice(2);
+    if (pathname === '/') {
+      scrollToSection(sectionId);
+    } else {
+      router.push('/');
+      sessionStorage.setItem('scrollTo', sectionId);
+    }
+  }, [pathname, router, scrollToSection]);
+
   const socialLinks = [
     { name: 'Github', url: 'https://github.com/sa50tyam11' },
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/satyamkrjha5011' },
     { name: 'X/Twitter', url: 'https://twitter.com/sa50tyam11' }
+  ];
+
+  const footerLinks = [
+    { name: 'Home', url: '/#home' },
+    { name: 'About', url: '/#about' },
+    { name: 'Works', url: '/#projects' },
+    { name: 'Resume', url: '/resume' },
+    { name: 'Blog', url: '/blogs' },
+    { name: 'Guestbook', url: '/guestbook' },
+    { name: 'Contact', url: '/#contact' },
+    { name: 'Privacy Policy', url: '/privacy-policy' }
   ];
 
   return (
@@ -40,16 +75,15 @@ export default function Footer() {
 
         <div className="lg:col-span-3 flex flex-col gap-4 mt-4 lg:mt-0 lg:ml-12">
           <span className="text-zinc-600 text-xs font-sans font-medium tracking-widest uppercase mb-2">(LINKS)</span>
-          {[
-            { name: 'Home', url: '/#home' },
-            { name: 'About', url: '/#about' },
-            { name: 'Works', url: '/#projects' },
-            { name: 'Blog', url: '/blogs' },
-            { name: 'Guestbook', url: '/guestbook' },
-            { name: 'Contact', url: '/#contact' },
-            { name: 'Privacy Policy', url: '/privacy-policy' }
-          ].map(link => (
-            <a key={link.name} href={link.url} className="text-white light:text-black hover:text-[#a3e635] light:hover:text-[#84cc16] text-lg font-sans font-light transition-colors w-fit">{link.name}</a>
+          {footerLinks.map(link => (
+            <a
+              key={link.name}
+              href={link.url}
+              onClick={(e) => handleFooterLink(e, link.url)}
+              className="text-white light:text-black hover:text-[#a3e635] light:hover:text-[#84cc16] text-lg font-sans font-light transition-colors w-fit"
+            >
+              {link.name}
+            </a>
           ))}
         </div>
 
