@@ -58,9 +58,9 @@ export const metadata: Metadata = {
     images: ["https://satyamkrjha.site/ogtag.jpg"],
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/senol.png",
+    icon: "/hero-coding.png",
+    shortcut: "/hero-coding.png",
+    apple: "/hero-coding.png",
   },
 };
 
