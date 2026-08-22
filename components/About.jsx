@@ -9,7 +9,7 @@ export default function About() {
     Core: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
     "Backend / Data": ["Node.js", "PostgreSQL", "Supabase"],
     Tools: ["Git", "GitHub", "Vercel / Netlify", "Figma"],
-    "Currently Learning": ["Python", "Data Structures & Algorithms"],
+    "Currently Learning": ["AI/ML", "Data Structures & Algorithms"],
   };
 
   return (
@@ -69,16 +69,7 @@ export default function About() {
             />
           </div>
 
-          <div className="mt-6 pl-6">
-            <a
-              href="/skjresume.pdf"
-              download="Satyam_Kumar_Jha_Resume.pdf"
-              className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full border border-white/20 light:border-black/20 text-white light:text-black font-bold tracking-widest uppercase text-[10px] md:text-xs hover:bg-white light:hover:bg-black hover:text-black light:hover:text-white transition-all backdrop-blur-md shadow-lg w-fit"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-              DOWNLOAD RESUME
-            </a>
-          </div>
+
         </div>
 
         {/* --- RIGHT CONTENT (Scrollable) --- */}
