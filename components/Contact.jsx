@@ -7,6 +7,22 @@ export default function Contact() {
   return (
     <section id="contact" className="w-full bg-[#0a0a0a] relative overflow-hidden border-t border-white/10 pt-32 pb-24 md:pt-48 md:pb-32">
 
+      {/* Background Video */}
+      <div className="absolute inset-0 w-full h-full z-0 opacity-80 md:opacity-100 pointer-events-none flex justify-start">
+        <div className="w-full md:w-3/4 h-full relative">
+          <video
+            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260702_081127_0992a171-d3c6-4978-8213-0ec5df8b6d63.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover object-right brightness-125 contrast-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#0a0a0a]/40 to-[#0a0a0a]"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-[#0a0a0a]"></div>
+        </div>
+      </div>
+
       <div className="max-w-350 mx-auto px-6 md:px-12 relative z-10 flex flex-col md:flex-row items-center justify-between gap-16">
         
         <div className="w-full md:w-3/5">
