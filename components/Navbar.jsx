@@ -2,7 +2,7 @@
 'use client'
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ArrowUpRight } from 'lucide-react';
+import { X, ArrowUpRight, Download } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
 
 export default function Navbar() {
@@ -31,9 +31,8 @@ export default function Navbar() {
     { name: 'HOME', href: '/#home' },
     { name: 'ABOUT', href: '/#about' },
     { name: 'PROJECTS', href: '/projects' },
-    { name: 'BLOG', href: '/blogs' },
-    { name: 'GUESTBOOK', href: '/guestbook' },
-    { name: 'CONTACT', href: '/contact' }
+    { name: 'EXPERIENCE', href: '/#experience' },
+    { name: 'CONTACT', href: '/#contact' }
   ];
 
   if (isAdmin) {
@@ -48,18 +47,27 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-3">
             <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
             <div className="text-white light:text-black text-[10px] leading-tight font-medium uppercase tracking-widest transition-colors">
-              Available for Internship / Job<br />
-              <span className="text-zinc-500 light:text-zinc-500 transition-colors">JULY 2026</span>
+              Open to internship &amp; full-time roles
             </div>
           </div>
 
           <div className="flex items-center gap-4">
             <ThemeToggle />
+            {/* Persistent Resume button — accessible from any scroll position */}
+            <a
+              href="/skjresume.pdf"
+              download="Satyam_Kumar_Jha_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden md:flex items-center gap-2 px-4 py-2 rounded-full bg-[#a3e635] text-black text-[10px] font-bold tracking-widest uppercase hover:bg-[#bef264] transition-colors shadow-sm shadow-[#a3e635]/20"
+            >
+              <Download size={12} />
+              Resume
+            </a>
             <button
               onClick={() => setIsOpen(true)}
               className="flex items-center gap-4 group"
             >
-              <span className="text-white light:text-black text-xs font-bold tracking-widest hidden md:block group-hover:text-[#a3e635] light:group-hover:text-[#84cc16] transition-colors uppercase">LET&apos;S TALK</span>
               <div className="w-10 h-10 flex flex-col justify-center items-center gap-1.5 border rounded-full group-hover:border-[#a3e635] light:group-hover:border-[#84cc16] transition-colors backdrop-blur-sm border-white/20 light:border-black/20 bg-white/5 light:bg-black/5">
                 <div className="w-5 h-0.5 group-hover:bg-[#a3e635] light:group-hover:bg-[#84cc16] bg-white light:bg-black transition-colors" />
                 <div className="w-5 h-0.5 group-hover:bg-[#a3e635] light:group-hover:bg-[#84cc16] bg-white light:bg-black transition-colors" />
@@ -105,7 +113,7 @@ export default function Navbar() {
                 ))}
               </div>
 
-              {/* Email & Socials */}
+              {/* Email, Resume & Socials */}
               <div className="flex flex-col gap-10 mt-auto pt-8">
                 <div className="flex flex-col gap-2">
                   <span className="text-zinc-600 text-[10px] font-bold tracking-widest uppercase">(EMAIL)</span>
@@ -113,6 +121,19 @@ export default function Navbar() {
                     krjhasatyam128@gmail.com
                   </a>
                 </div>
+
+                {/* Resume — visible in mobile menu */}
+                <a
+                  href="/skjresume.pdf"
+                  download="Satyam_Kumar_Jha_Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsOpen(false)}
+                  className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[#a3e635] text-black text-[10px] font-bold tracking-widest uppercase hover:bg-[#bef264] transition-colors w-fit"
+                >
+                  <Download size={14} />
+                  Download Resume
+                </a>
 
                 <div className="flex flex-col gap-4">
                   <span className="text-zinc-600 text-[10px] font-bold tracking-widest uppercase">(SOCIALS)</span>

@@ -1,4 +1,4 @@
-import { ClerkProvider, SignInButton, SignUpButton, Show, UserButton } from '@clerk/nextjs'
+import { ClerkProvider } from '@clerk/nextjs'
 import { Barlow, Instrument_Serif } from 'next/font/google'
 import Navbar from '@/components/Navbar'
 import { ThemeProvider } from '@/components/theme-provider'
@@ -17,11 +17,7 @@ const instrument = Instrument_Serif({
   variable: '--font-instrument',
 })
 
-// --- ADDED THIS BLOCK FOR THE BROWSER TAB COLOR ---
 export const viewport = {
-  // Browsers ONLY accept solid colors here, no gradients.
-  // Change this HEX code to any solid color you want. 
-  // #0a0a0a matches your dark background perfectly.
   themeColor: '#0a0a0a',
 }
 
@@ -29,9 +25,9 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://satyamkrjha.site'),
-  title: "Satyam Kumar Jha | Full Stack Developer",
-  description: "Full Stack Developer building fast, premium web platforms for clients. Founder of SENO Studio.",
-  keywords: ["Satyam Kumar Jha", "Satya", "Portfolio", "Full Stack Developer", "SENO Studio", "Web Developer", "Software Engineer", "React Developer", "Next.js Developer"],
+  title: "Satyam Kumar Jha | Full Stack Developer (Next.js, React, TypeScript)",
+  description: "BCA student and full-stack developer building production web apps with Next.js, TypeScript, and React. Open to internship and junior software engineering roles.",
+  keywords: ["Satyam Kumar Jha", "Satya", "Portfolio", "Full Stack Developer", "Next.js Developer", "React Developer", "TypeScript", "SENO Studio", "Web Developer", "Software Engineer", "Internship"],
   authors: [{ name: "Satyam Kumar Jha", url: "https://satyamkrjha.site" }],
   creator: "Satyam Kumar Jha",
   publisher: "Satyam Kumar Jha",
@@ -39,8 +35,8 @@ export const metadata: Metadata = {
     canonical: 'https://satyamkrjha.site',
   },
   openGraph: {
-    title: "Satyam Kumar Jha | Full Stack Developer",
-    description: "Full Stack Developer building fast, premium web platforms for clients. Founder of SENO Studio.",
+    title: "Satyam Kumar Jha | Full Stack Developer (Next.js, React, TypeScript)",
+    description: "BCA student and full-stack developer building production web apps with Next.js, TypeScript, and React. Open to internship and junior software engineering roles.",
     url: "https://satyamkrjha.site",
     siteName: "Satyam Kumar Jha",
     images: [
@@ -56,8 +52,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Satyam Kumar Jha | Full Stack Developer",
-    description: "Full Stack Developer building fast, premium web platforms for clients.",
+    title: "Satyam Kumar Jha | Full Stack Developer (Next.js, React, TypeScript)",
+    description: "BCA student and full-stack developer building production web apps with Next.js, TypeScript, and React. Open to internship and junior roles.",
     images: ["https://satyamkrjha.site/ogtag.jpg"],
   },
   icons: {
@@ -81,15 +77,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           disableTransitionOnChange
         >
           <ClerkProvider>
-            <header className="absolute top-0 right-0 p-4 z-[200]">
-              <Show when="signed-out">
-                <SignInButton />
-                <SignUpButton />
-              </Show>
-              <Show when="signed-in">
-                <UserButton />
-              </Show>
-            </header>
+            {/* Sign in/sign up removed from global nav — auth only used on /guestbook */}
             <Navbar />
             {children}
           </ClerkProvider>

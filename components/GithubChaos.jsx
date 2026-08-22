@@ -6,7 +6,7 @@ export default function GithubChaos() {
     <section className="w-full relative bg-[#0a0a0a] light:bg-[#fafafa] py-16 md:py-24 border-t border-white/10 light:border-black/10">
       <div className="max-w-[1400px] mx-auto w-full px-8 md:px-12 flex flex-col items-center justify-center text-center">
         <p className="text-xl md:text-3xl font-sans text-white light:text-black leading-relaxed max-w-4xl mx-auto mb-10">
-          There&apos;s more <span className="bg-[#84cc16] text-black px-2 md:px-3 py-0.5 md:py-1 rounded-md font-medium">experiments, half-built tools, and questionable decisions</span><br className="hidden md:block" /> living on my GitHub.
+          More of my work — <span className="bg-[#84cc16] text-black px-2 md:px-3 py-0.5 md:py-1 rounded-md font-medium">client repos, side projects, and experiments</span><br className="hidden md:block" /> all live on GitHub.
         </p>
 
         <a

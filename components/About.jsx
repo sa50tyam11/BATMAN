@@ -1,17 +1,15 @@
 // components/About.jsx
 'use client'
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
-import { ComicText } from '@/components/ui/comic-text';
 import ProfileCard from './ProfileCard';
 
 export default function About() {
-  // Restructured for instantly readable recruiter scanning
+  // Only defensible, project-backed technologies
   const techStack = {
-    Frontend: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Three.js"],
-    Backend: ["Node.js", "Express", "Python", "Django", "PostgreSQL", "MongoDB"],
-    Systems: ["C / C++", "OpenCV", "Low-level Architecture"],
-    Tools: ["Git", "Docker", "Figma", "Postman"]
+    Core: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+    "Backend / Data": ["Node.js", "PostgreSQL", "Supabase"],
+    Tools: ["Git", "GitHub", "Vercel / Netlify", "Figma"],
+    "Currently Learning": ["Python", "Data Structures & Algorithms"],
   };
 
   return (
@@ -21,11 +19,6 @@ export default function About() {
 
         {/* --- LEFT SIDEBAR (Sticky) --- */}
         <div className="w-full lg:col-span-5 lg:sticky lg:top-0 lg:h-screen flex flex-col pt-24 pb-12 pr-0 lg:pr-8">
-
-          <div className="flex flex-col items-start mb-8 gap-2 md:gap-4">
-            <ComicText fontSize={4}>THE</ComicText>
-            <ComicText fontSize={4}>ARCHITECT.</ComicText>
-          </div>
 
           <div 
             className="mt-2 pl-6 max-w-[280px] md:max-w-[320px] profile-card-override"
@@ -55,9 +48,9 @@ export default function About() {
             `}</style>
             <ProfileCard
               name="Satyam Kumar Jha"
-              title="Founder, SENO Studio — Full Stack Developer"
+              title="Full Stack Developer — Next.js / TypeScript / React"
               handle="satyam.codes"
-              status="Available for Work"
+              status="Open to Roles"
               contactText="Download Resume"
               avatarUrl="/aboutme.png"
               showUserInfo={true}
@@ -77,7 +70,6 @@ export default function About() {
           </div>
 
           <div className="mt-6 pl-6">
-            {/* FIXED: Wired up the actual skjresume.pdf file with a download attribute */}
             <a
               href="/skjresume.pdf"
               download="Satyam_Kumar_Jha_Resume.pdf"
@@ -92,6 +84,7 @@ export default function About() {
         {/* --- RIGHT CONTENT (Scrollable) --- */}
         <div className="col-span-1 lg:col-span-7 flex flex-col gap-16 pt-12 lg:pt-24 pb-24">
 
+          {/* About — student-first framing */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -99,10 +92,13 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="text-2xl md:text-3xl lg:text-4xl font-medium leading-[1.2] text-zinc-200 light:text-zinc-800 tracking-tight"
           >
-            I'm Satyam Kumar Jha, a Full Stack Developer and founder of <span className="text-[#a3e635] light:text-[#84cc16] font-semibold">SENO Studio</span>. I engineer high-performance web platforms with clean architecture and exceptional interfaces, having shipped 20+ custom applications over the last 3 years.
+            I&apos;m Satyam, a BCA student and full-stack developer working primarily in{' '}
+            <span className="text-[#a3e635] light:text-[#84cc16] font-semibold">Next.js, TypeScript, React</span>, and PostgreSQL/Supabase.
           </motion.p>
 
           <div className="grid grid-cols-1 gap-12">
+
+            {/* About body */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -110,71 +106,83 @@ export default function About() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="flex flex-col gap-6"
             >
-              <h3 className="text-[10px] font-bold text-zinc-500 tracking-[0.2em] uppercase border-b border-white/10 light:border-black/10 pb-4">The Origin</h3>
-              <ul className="space-y-5 text-zinc-400 light:text-zinc-600 text-sm md:text-base leading-relaxed">
-                <li className="flex gap-4 items-start">
-                  <ArrowRight className="w-4 h-4 text-[#a3e635] light:text-[#84cc16] shrink-0 mt-1" />
-                  <span>Self-taught developer with a foundation in reverse-engineering production applications.</span>
-                </li>
-                <li className="flex gap-4 items-start">
-                  <ArrowRight className="w-4 h-4 text-[#a3e635] light:text-[#84cc16] shrink-0 mt-1" />
-                  <span>Founder of SENO Studio, delivering full-stack digital transformations for 20+ clients.</span>
-                </li>
-                <li className="flex gap-4 items-start">
-                  <ArrowRight className="w-4 h-4 text-[#a3e635] light:text-[#84cc16] shrink-0 mt-1" />
-                  <span>BCA student expanding technical depth through systems programming and Computer Vision.</span>
-                </li>
-              </ul>
+              <h3 className="text-[10px] font-bold text-zinc-500 tracking-[0.2em] uppercase border-b border-white/10 light:border-black/10 pb-4">About</h3>
+              <div className="space-y-5 text-zinc-400 light:text-zinc-600 text-sm md:text-base leading-relaxed">
+                <p>
+                  Over the past two years, I&apos;ve built and shipped production websites and small e-commerce platforms for real local businesses through{' '}
+                  <span className="text-white light:text-black font-medium">SENO Studio</span>, the studio I co-founded with Abhinav — handling everything from frontend architecture to data modeling to deployment.
+                </p>
+                <p>
+                  Outside client work, I build things I&apos;m curious about — like{' '}
+                  <a href="https://github.com/sa50tyam11/SUR-SANSAR" target="_blank" rel="noopener noreferrer" className="text-[#a3e635] light:text-[#84cc16] hover:underline">Sur-Sansar</a>,
+                  an interactive map of Indian folk music.
+                </p>
+                <p>
+                  Right now I&apos;m deepening my CS fundamentals and DSA, and I&apos;m looking for an internship or junior engineering role where I can work on real production systems with a team.
+                </p>
+              </div>
             </motion.div>
 
+            {/* Experience */}
             <motion.div
+              id="experience"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.3 }}
               className="flex flex-col gap-6"
             >
-              <h3 className="text-[10px] font-bold text-zinc-500 tracking-[0.2em] uppercase border-b border-white/10 light:border-black/10 pb-4">Education</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <h3 className="text-[10px] font-bold text-zinc-500 tracking-[0.2em] uppercase border-b border-white/10 light:border-black/10 pb-4">Experience</h3>
+              <div className="flex flex-col gap-8">
                 <div>
-                  <h4 className="text-white light:text-black font-bold text-lg tracking-tight">Bachelor of Computer Applications</h4>
-                  <p className="text-[#a3e635] light:text-[#84cc16] text-xs font-bold tracking-wider uppercase mt-2">Nitishwar Mahavidyalaya BRABU<br /><span className="text-zinc-500">2024 — Present</span></p>
+                  <h4 className="text-white light:text-black font-bold text-lg tracking-tight">Co-Founder, SENO Studio</h4>
+                  <p className="text-[#a3e635] light:text-[#84cc16] text-xs font-bold tracking-wider uppercase mt-2">2024 — Present</p>
+                  <p className="text-zinc-400 light:text-zinc-600 text-sm md:text-base leading-relaxed mt-3">
+                    Co-founded a web design and development studio with Abhinav, formalizing freelance work into a small agency. Responsible for technical delivery across client projects while Abhinav leads design and client relations.
+                  </p>
                 </div>
                 <div>
-                  <h4 className="text-white light:text-black font-bold text-lg tracking-tight">Class XII (PCM + IT STEM)</h4>
-                  <p className="text-[#a3e635] light:text-[#84cc16] text-xs font-bold tracking-wider uppercase mt-2">Sree Ayyappa Public School<br /><span className="text-zinc-500">Bokaro</span></p>
+                  <h4 className="text-white light:text-black font-bold text-lg tracking-tight">Freelance Full Stack Developer</h4>
+                  <p className="text-[#a3e635] light:text-[#84cc16] text-xs font-bold tracking-wider uppercase mt-2">2022 — Present <span className="text-zinc-500 mx-2">•</span> <span className="text-zinc-500">Independent</span></p>
+                  <p className="text-zinc-400 light:text-zinc-600 text-sm md:text-base leading-relaxed mt-3">
+                    Design and build production websites and web applications for small businesses, primarily using Next.js, TypeScript, and Supabase/PostgreSQL. Own the full project lifecycle — requirements gathering, frontend build, data layer, deployment, and post-launch support.
+                  </p>
                 </div>
               </div>
             </motion.div>
 
+            {/* Education */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: 0.8, delay: 0.35 }}
               className="flex flex-col gap-6"
             >
-              <h3 className="text-[10px] font-bold text-zinc-500 tracking-[0.2em] uppercase border-b border-white/10 light:border-black/10 pb-4">Experience</h3>
-              <div className="flex flex-col gap-4">
-                <div>
-                  <h4 className="text-white light:text-black font-bold text-lg tracking-tight">Freelance Full Stack Developer</h4>
-                  <p className="text-[#a3e635] light:text-[#84cc16] text-xs font-bold tracking-wider uppercase mt-2">Independent <span className="text-zinc-500 mx-2">•</span> <span className="text-zinc-500">2022 — Present</span></p>
-                </div>
-                <p className="text-zinc-400 light:text-zinc-600 text-sm md:text-base leading-relaxed">
-                  Successfully architected and delivered 20+ custom client projects globally. Specialized in transforming complex business requirements into high-performance web applications, scalable e-commerce platforms, and premium digital agency portfolios.
+              <h3 className="text-[10px] font-bold text-zinc-500 tracking-[0.2em] uppercase border-b border-white/10 light:border-black/10 pb-4">Education</h3>
+              <div>
+                <h4 className="text-white light:text-black font-bold text-lg tracking-tight">Bachelor of Computer Applications</h4>
+                <p className="text-[#a3e635] light:text-[#84cc16] text-xs font-bold tracking-wider uppercase mt-2">
+                  Nitishwar Mahavidyalaya, BRABU
+                  <br /><span className="text-zinc-500">2024 — Present</span>
                 </p>
               </div>
             </motion.div>
           </div>
 
-          {/* Grouped Tech Stack */}
+          {/* Tech Stack — defensible, honest categories */}
           <div className="pt-8 border-t border-white/10 light:border-black/10 mt-8">
-            <span className="text-zinc-500 text-[10px] font-bold tracking-[0.2em] uppercase mb-8 block">(CORE ARSENAL)</span>
+            <span className="text-zinc-500 text-[10px] font-bold tracking-[0.2em] uppercase mb-8 block">(TECH STACK)</span>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {Object.entries(techStack).map(([category, skills], categoryIndex) => (
                 <div key={categoryIndex} className="flex flex-col gap-3">
-                  <h4 className="text-white light:text-black text-xs font-bold tracking-widest uppercase mb-2 border-l-2 border-[#a3e635] light:border-[#84cc16] pl-3">{category}</h4>
+                  <h4 className={`text-white light:text-black text-xs font-bold tracking-widest uppercase mb-2 border-l-2 pl-3 ${category === 'Currently Learning' ? 'border-zinc-500 text-zinc-400' : 'border-[#a3e635] light:border-[#84cc16]'}`}>
+                    {category}
+                    {category === 'Currently Learning' && (
+                      <span className="ml-2 text-zinc-600 text-[9px] normal-case tracking-normal font-normal">(in progress)</span>
+                    )}
+                  </h4>
                   <div className="flex flex-wrap gap-2">
                     {skills.map((item, index) => (
                       <motion.div
@@ -183,7 +191,11 @@ export default function About() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.05 * index, duration: 0.3 }}
-                        className="px-4 py-2 rounded-full border border-white/10 light:border-black/10 bg-[#0f0f0f] light:bg-zinc-100 text-[10px] md:text-xs font-semibold tracking-wide text-zinc-300 light:text-zinc-700 hover:border-[#a3e635] light:hover:border-[#84cc16] hover:text-[#a3e635] light:hover:text-[#84cc16] hover:bg-[#a3e635]/5 light:hover:bg-[#84cc16]/5 transition-all cursor-default"
+                        className={`px-4 py-2 rounded-full border text-[10px] md:text-xs font-semibold tracking-wide transition-all cursor-default ${
+                          category === 'Currently Learning'
+                            ? 'border-zinc-700 bg-zinc-900 text-zinc-500 hover:border-zinc-500 hover:text-zinc-400'
+                            : 'border-white/10 light:border-black/10 bg-[#0f0f0f] light:bg-zinc-100 text-zinc-300 light:text-zinc-700 hover:border-[#a3e635] light:hover:border-[#84cc16] hover:text-[#a3e635] light:hover:text-[#84cc16] hover:bg-[#a3e635]/5 light:hover:bg-[#84cc16]/5'
+                        }`}
                       >
                         {item}
                       </motion.div>

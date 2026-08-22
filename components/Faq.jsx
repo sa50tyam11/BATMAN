@@ -8,16 +8,12 @@ import { Plus, Minus } from 'lucide-react';
 const faqs = [
   {
     question: "Are you available for full-time / internship roles?",
-    answer: "Yes. While I have successfully run my own freelance operations, my primary goal right now is to integrate into a high-functioning engineering team. I am actively looking for full-time or internship roles where I can tackle complex architectural challenges and scale products."
+    answer: "Yes — I'm actively looking for internship and junior full-time software engineering roles. My primary goal right now is to join a real engineering team where I can work on production systems and grow alongside experienced engineers."
   },
   {
     question: "What's your preferred tech stack?",
-    answer: "I am heavily invested in the modern JavaScript/TypeScript ecosystem—specifically Next.js, React, and Node.js for robust web applications. For data and backend infrastructure, I rely on PostgreSQL and MongoDB. When a project requires deep performance optimization or machine learning, I drop down into C++ and Python."
+    answer: "I work primarily in the modern JavaScript/TypeScript ecosystem — Next.js, React, TypeScript, and Tailwind CSS on the frontend; Node.js, PostgreSQL, and Supabase on the backend. I deploy on Vercel and Netlify. I'm currently learning Python and Data Structures & Algorithms."
   },
-  {
-    question: "Do you have experience working with agile teams?",
-    answer: "Absolutely. As the co-founder of GrindLab.tech, I directed a 100+ member engineering community, organizing sprint cycles, code reviews, and collaborative problem-solving. I know how to communicate technical debt, unblock peers, and ship code iteratively."
-  }
 ];
 
 export default function Faq() {

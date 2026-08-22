@@ -8,12 +8,12 @@ const inter = Inter({ subsets: ['latin'] });
 
 const projects = [
   { title: "Sur-Sansar", industry: "Interactive Music Web App", scope: "Next.js + Zustand + Howler.js", image: "/sursansar.png", videoUrl: "", link: "https://github.com/sa50tyam11/SUR-SANSAR" },
+  { title: "Muzaffarpur Bangles", industry: "E-Commerce", scope: "Full-Stack Web App & Admin", image: "/bangle.png", videoUrl: "", link: "https://muzaffarpurbangles.netlify.app" },
   { title: "Visionary Opticals", industry: "Retail & Eyewear", scope: "Website Design + E-commerce", image: "/opticle.png", videoUrl: "", link: "https://seno-eye-demo.netlify.app/" },
   { title: "Real Estate Business", industry: "Real Estate", scope: "Property Buying & Selling", image: "/e-state.png", videoUrl: "", link: "https://seno-estate.netlify.app/" },
-  { title: "Muzaffarpur Bangles", industry: "E-Commerce", scope: "Full-Stack Web App & Admin", image: "/bangle.png", videoUrl: "", link: "https://muzaffarpurbangles.netlify.app" },
-  { title: "Campus School", industry: "Education", scope: "School Website & Portal", image: "/school.png", videoUrl: "", link: "https://campusschool.netlify.app" },
-  { title: "SENO Studio", industry: "Digital Agency", scope: "Brand Identity & Web Design", image: "/senoweb.png", videoUrl: "", link: "#" },
-  { title: "Ongoing Client Work", industry: "Confidential", scope: "Under Development", image: "/4.jpg", videoUrl: "", link: "", ctaText: "Contact for Work", ctaLink: "/#contact", ctaVariant: "lime" }
+  { title: "SENO Studio", industry: "Digital Agency", scope: "Self-directed agency site — not client work", image: "/senoweb.png", videoUrl: "", link: "https://senostudio.in" },
+  // Campus School removed — redundant with other local-business client sites
+  // Ongoing Client Work removed — placeholder, not a real project
 ];
 
 export default function ProjectsPage() {

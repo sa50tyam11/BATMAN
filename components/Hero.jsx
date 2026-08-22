@@ -1,7 +1,7 @@
 // components/Hero.jsx
 'use client'
 import { motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Download } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export default function Hero() {
@@ -49,25 +49,23 @@ export default function Hero() {
 
         <div className="flex flex-col items-start mt-8 md:mt-0 pointer-events-auto">
 
-          {/* FIXED: Scaled down from text-3xl to text-2xl */}
           <motion.span
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-zinc-300 font-serif italic text-lg md:text-2xl tracking-widest uppercase mb-2 md:mb-4 drop-shadow-lg"
           >
-            Full Stack
+            Full Stack Developer
           </motion.span>
 
-          {/* FIXED: Scaled down from 12vw to 10vw to give breathing room from the top name */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-white font-serif text-[20vw] md:text-[10vw] leading-[0.85] tracking-tighter uppercase drop-shadow-2xl"
+            className="text-white font-serif text-[18vw] md:text-[9vw] leading-[0.85] tracking-tighter uppercase drop-shadow-2xl"
           >
-            WEB<br />
-            DEVELOPER
+            NEXT.JS<br />
+            / REACT
           </motion.h1>
 
           <motion.div
@@ -83,34 +81,38 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 1 }}
             className="text-zinc-200 font-sans font-light text-sm md:text-lg max-w-xs md:max-w-sm leading-relaxed tracking-wide drop-shadow-md"
           >
-            Building digital experiences that are elegant, functional & impactful.
+            BCA student building production web apps end-to-end — frontend, backend, and deployment. Founder of SENO Studio.
           </motion.p>
         </div>
 
       </div>
 
-      {/* FIXED: Grouped "Code. Create. Elevate." and the Button together so they perfectly align at the bottom */}
+      {/* Bottom Left: CTAs */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.2 }}
-        className="absolute bottom-8 md:bottom-12 left-6 md:left-12 z-20 flex items-end gap-8 md:gap-16 pointer-events-none"
+        className="absolute bottom-8 md:bottom-12 left-6 md:left-12 z-20 flex items-end gap-4 md:gap-6 pointer-events-none"
       >
-        <div className="flex flex-col gap-3 pointer-events-auto">
-          {['CODE.', 'CREATE.', 'ELEVATE.'].map((word, i) => (
-            <span key={i} className="text-zinc-300 font-sans font-medium tracking-[0.3em] text-[10px] uppercase drop-shadow-md">
-              {word}
-            </span>
-          ))}
-        </div>
-
-        {/* Button moved here so it perfectly aligns horizontally with "ELEVATE" */}
+        {/* Primary CTA: View Projects */}
         <a
           href="#projects"
-          className="group flex items-center justify-between w-[200px] md:w-[220px] px-6 py-3.5 md:py-4 border border-white/20 bg-white/10 backdrop-blur-md text-white font-sans text-[10px] md:text-xs font-medium tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300 rounded-sm shadow-xl pointer-events-auto mb-[-2px]"
+          className="group flex items-center justify-between w-[180px] md:w-[200px] px-6 py-3.5 md:py-4 border border-white/20 bg-white/10 backdrop-blur-md text-white font-sans text-[10px] md:text-xs font-medium tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300 rounded-sm shadow-xl pointer-events-auto mb-[-2px]"
         >
-          <span>View My Work</span>
+          <span>View Projects</span>
           <ArrowUpRight size={16} className="group-hover:rotate-45 transition-transform duration-300" />
+        </a>
+
+        {/* Secondary CTA: Download Resume */}
+        <a
+          href="/skjresume.pdf"
+          download="Satyam_Kumar_Jha_Resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex items-center justify-between w-[180px] md:w-[200px] px-6 py-3.5 md:py-4 border border-[#a3e635]/60 bg-transparent backdrop-blur-md text-[#a3e635] font-sans text-[10px] md:text-xs font-medium tracking-widest uppercase hover:bg-[#a3e635] hover:text-black transition-all duration-300 rounded-sm shadow-xl pointer-events-auto mb-[-2px]"
+        >
+          <span>Download Resume</span>
+          <Download size={16} className="group-hover:translate-y-0.5 transition-transform duration-300" />
         </a>
       </motion.div>
 
@@ -141,7 +143,7 @@ export default function Hero() {
       >
         <span className="text-zinc-400 font-sans text-[9px] tracking-widest uppercase mb-2 drop-shadow-md">Available For</span>
         <span className="text-white font-sans text-[11px] font-medium tracking-widest uppercase border-b border-white/20 pb-2 drop-shadow-md">
-          Internships & Roles
+          Internships &amp; Roles
         </span>
       </motion.div>
 

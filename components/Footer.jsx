@@ -76,13 +76,6 @@ export default function Footer() {
             <ParticleTextEffect text="SATYAM" className="w-full h-full object-contain object-left-bottom" colors={resolvedTheme === 'light' ? ['111111'] : ['ffffff']} particleDensity={4} animationForce={60} />
           )}
         </div>
-        <div className="flex flex-col text-right pb-6 md:pb-12 lg:pb-16 w-full justify-end items-end pointer-events-none relative z-10">
-          <h2 className="text-[6vw] md:text-[5vw] lg:text-[4vw] font-sans font-medium uppercase leading-[0.9] tracking-tighter text-white/90 light:text-black/90">
-            <span className="font-serif italic font-normal normal-case text-zinc-400 light:text-zinc-600">Beyond code.</span><br />
-            Built With<br />
-            Vision.
-          </h2>
-        </div>
       </div>
     </footer>
   );
