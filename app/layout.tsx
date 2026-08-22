@@ -56,12 +56,6 @@ export const metadata: Metadata = {
     title: "Satyam Kumar Jha | Full Stack Developer (Next.js, React, TypeScript)",
     description: "BCA student and full-stack developer building production web apps with Next.js, TypeScript, and React. Open to internship and junior roles.",
     images: ["https://satyamkrjha.site/ogtag.jpg"],
-  },
-  icons: {
-    icon: "/hero-coding.png",
-    shortcut: "/hero-coding.png",
-    apple: "/hero-coding.png",
-  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
